@@ -17,7 +17,6 @@ function makeEnemy(h,size,s) {
 
 makeEnemy()
 
-TIME = 2000
 function popBomb() {
   bombs.pop()
 }
@@ -29,6 +28,12 @@ function fall(bomb) {
     delay(popBomb,601)
 }
 function shoot() {
+  const DISTANCE = 900 -y
+  const TIME = DISTANCE > 500 ? 2000 : 
+  	DISTANCE > 400 ? 1500 :
+    DISTANCE > 350 ? 1000 :
+    DISTANCE > 300 ? 650 :
+    DISTANCE > 250 ? 300 : 200
   if (bombs.length < 5) {
     let ball = stamp('bomb',PIRATE.x,900,50)
     ball.DOWN = false
